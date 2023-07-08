@@ -17,7 +17,7 @@ As a user and shopper, I want to be able to navigate through different themes th
 ![project4 item screenshot](pj4_itempage.png)
 
 ## ERD 
-
+![project4 ERD screenshot](pj4_ERD_screenshot.png)
 ## future features
 
 ## link
