@@ -19,6 +19,8 @@ As a user and shopper, I want to be able to navigate through different themes th
 ## ERD 
 ![project4 ERD screenshot](pj4_ERD_screenshot.png)
 ## future features
+1. updates likes and comments
+2. css features that hover over and show text tag
 
 ## link
 
