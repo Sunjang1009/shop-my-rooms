@@ -11,6 +11,10 @@ As a user and shopper, I want to be able to navigate through different themes th
 ## installation steps
 
 ## wireframe 
+![project4 homepage screenshot](pj4_homepage.png)
+![project4 theme screenshot](pj4_themepage.png)
+![project4 lookbook screenshot](pj4_lookbookpage.png)
+![project4 item screenshot](pj4_itempage.png)
 
 ## ERD 
 
