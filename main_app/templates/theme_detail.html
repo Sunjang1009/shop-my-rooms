@@ -9,6 +9,48 @@
         <p>{{theme.description}}</p>
     </div>
     <div class="detail__lookbooks mb-5">
+        <form class="mb-5" action="{% url 'lookbook_create' theme.pk %}" method="post">
+            {% csrf_token %}
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Name</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input class="input" type="text" name="name" placeholder="Lookbook name" required>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Image</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input class="input" type="text" name="image" placeholder="Lookbook image address" required>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Items</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input class="input" type="text" name="items" placeholder="Lookbook items" required>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="control">
+                <input class="button is-primary" type="submit" value="add a lookbook" />
+            </div>
+        </form>
         <h3 class="title is-3">LookBooks</h3>
         {% for lookbook in theme.lookbooks.all %}
         <div class="lookbook">

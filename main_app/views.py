@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from django.views.generic import DetailView
-from .models import Theme
+from .models import Theme, Lookbook
 
 # Create your views here.
 
@@ -13,12 +13,6 @@ class Home(TemplateView):
 class About(TemplateView):
     template_name = "about.html"
 
-# themes = [
-#     Theme("modern", "https://i.pinimg.com/236x/09/71/17/09711788c0cda08d318e1b446e739003.jpg"),
-#     Theme("colorful", "https://i.pinimg.com/236x/da/6f/f3/da6ff36deea78497b5d3cfb1ba8c8355.jpg"),
-#     Theme("bohemian", "https://i.pinimg.com/236x/0d/cb/14/0dcb14d1029cdc29d51d23aed35d2ac1.jpg"),
-#     Theme("romantic", "https://i.pinimg.com/564x/92/6c/0e/926c0ecad7c6afd7149902697b4eea10.jpg"),
-# ]
 
 class ThemeList(TemplateView):
     template_name = "theme_list.html"
@@ -36,6 +30,16 @@ class ThemeList(TemplateView):
 class ThemeDetail(DetailView):
     model = Theme
     template_name = "theme_detail.html"
+
+class LookbookCreate(View):
+    def post(self, request, pk):
+        name = request.POST.get("name")
+        image = request.POST.get("image")
+        items = request.POST.get("items")
+        theme = Theme.objects.get(pk=pk)
+        Lookbook.objects.create(name=name, image=image, items=items, theme=theme)
+        return redirect('theme_detail', pk=pk)
+
 
 
 
