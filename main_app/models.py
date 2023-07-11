@@ -17,7 +17,6 @@ class Lookbook(models.Model):
     def __str__(self):
         return self.name
 
-
 class Product(models.Model):
     name = models.CharField(max_length=100)
     image = models.CharField(max_length=200)
@@ -25,7 +24,6 @@ class Product(models.Model):
     lookbook = models.ForeignKey(Lookbook, on_delete=models.CASCADE, related_name="products")
     def __str__(self):
         return self.name
-
     def get_price(self):
         return f"${self.price:,.2f}"
 

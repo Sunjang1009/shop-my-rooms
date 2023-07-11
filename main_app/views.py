@@ -3,7 +3,7 @@ from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from django.views.generic import DetailView
-from .models import Theme, Lookbook
+from .models import Theme, Lookbook, Product
 
 # Create your views here.
 

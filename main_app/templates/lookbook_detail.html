@@ -1,5 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
+<h1>this is lookbook detail</h1>
+<div class="product_detail_contrainer">
+    <div class="product__detail__img">
+        <h1>{{lookbook.name}}</h1>
+        <img src="{{lookbook.image}}" alt="{{lookbook.name}}">
+    </div>
+    <div class="product__detail__detail">
+        <h3 class="title is-3">Products</h3>
+            {% for product in lookbook.products.all %}
+            <div class="lookbook">
+                <span>{{forloop.counter}}</span>
+                <span>{{product.name}}</span>
+                <img src="{{product.image}}" alt="{{product.name}}">
+                <span>{{product.get_price}}</span>
+            </div>
+            
+            {% endfor %}
+    </div>
+
+</div>
 
 {% endblock %}
 
