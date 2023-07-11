@@ -40,6 +40,9 @@ class LookbookCreate(View):
         Lookbook.objects.create(name=name, image=image, items=items, theme=theme)
         return redirect('theme_detail', pk=pk)
 
+class LookbookDetail(DetailView):
+    model = Lookbook
+    template_name = "lookbook_detail.html"
 
 
 
