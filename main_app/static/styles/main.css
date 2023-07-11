@@ -1,15 +1,22 @@
 body {
     background-color: #f2f2f2;
-    color:#286e34;
+    color: #286e34;
     min-height: 100vh;
 }
 
-h1,h2,h3 {
-    color:#286e34;
+h1,
+h2,
+h3 {
+    color: #286e34;
+}
+
+.container {
+    padding: 40px;
+    padding-right: 0;
 }
 
 .title {
-    color:#286e34;
+    color: #286e34;
 }
 
 .gallery {
@@ -30,4 +37,54 @@ h1,h2,h3 {
 
 p {
     font-size: 12px;
+}
+
+.detail__img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 500px;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.detail__img::after {
+    content: "";
+    background-image: linear-gradient(transparent 60%, #1f1f1f);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+
+img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.detail__name {
+    position: absolute;
+    z-index: 5;
+    top: 400px;
+}
+
+.detail__container {
+    margin-top: 500px;
+}
+
+.detail__lookbooks {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.lookbook {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    justify-content: center;
+    gap: 10px;
 }

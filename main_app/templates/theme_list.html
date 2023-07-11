@@ -3,10 +3,22 @@
 Themes
 {% endblock %}
 {% block content %}
-<h1 class="title pt-5">Trending Themes</h1>
+<h1 class="title pt-5">{{header}}</h1>
+<!-- here is the search form -->
+<form class="mb-5" method="get">
+    <div class="field has-addons">
+        <div class="control">
+            <input class="input" type="text" name="name" placeholder="please enter theme"/>
+        </div>
+        <div class="control">
+            <input class="button is-success" type="submit" value="Search" />
+        </div>
+    </div>
+    <a class="button is-dark" href="{% url 'theme_list' %}">Clear Search</a>
+</form>
 <div class="gallery">
     {% for theme in themes %}
-    <a href="">
+    <a href="{% url 'theme_detail' theme.pk %}">
         <div class="card">
             <div class="card-image">
                 <figure class="image is-square">

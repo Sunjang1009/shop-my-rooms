@@ -5,7 +5,10 @@ urlpatterns = [
     path('', views.Home.as_view(), name="home"),
     path('about/', views.About.as_view(), name="about"),
     path('themes/', views.ThemeList.as_view(), name="theme_list"),
+    path('themes/<int:pk>/', views.ThemeDetail.as_view(), name="theme_detail"),
 ]
+
+
 
 
 

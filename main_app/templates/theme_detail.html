@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="detail__img">
+    <h1>{{theme.name}}</h1>
+    <!-- <img src="{{theme.image}}" alt="{{theme.name}}"> -->
+</div>
+<div class="detail__container">
+    <div class="detail__about">
+        <p>{{theme.description}}</p>
+    </div>
+    <div class="detail__lookbooks mb-5">
+        <h3 class="title is-3">LookBooks</h3>
+        {% for lookbook in theme.lookbooks.all %}
+        <div class="lookbook">
+            <span>{{forloop.counter}}</span>
+            <span>{{lookbook.name}}</span>
+            <img src="{{lookbook.image}}" alt="{{lookbook.name}}">
+            <div>
+                {{lookbook.items}}
+            </div>
+        </div>
+        {% empty %}
+        <article class="message">
+            <div class="message-header">
+                <p>No Lookbooks Available</p>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
