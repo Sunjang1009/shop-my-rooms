@@ -58,6 +58,14 @@
             <img src="{{product.image}}" alt="{{product.name}}">
             <span>{{product.get_price}}</span>
         </div>
+        <div class="buttons">
+            <a href="{% url 'product_update' lookbook.pk product.pk %}" class="button is-info">Updates
+                <span class="icon">
+                    <i class="fas fa-edit"></i>
+                </span>
+            </a>
+           
+        </div>
         {% endfor %}
     </div>
 

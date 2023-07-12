@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from .models import Theme, Lookbook, Product
 
@@ -61,4 +63,12 @@ class ProductCreate(View):
         Product.objects.create(name=name, image=image, price=price, lookbook=lookbook)
         return redirect('lookbook_detail', pk=pk)
 
+
+class ProductUpdate(UpdateView):
+    model = Product
+    fields = ["name", "image", "price"]
+    template_name = "product_update.html"
+    # have to update kwargs as pk lookbook pk not product pk
+    def get_success_url(self):
+        return reverse('lookbook_detail', kwargs={'pk':self.object.pk})
 

@@ -9,7 +9,9 @@ urlpatterns = [
     path('themes/<int:pk>/lookbooks/new/', views.LookbookCreate.as_view(), name="lookbook_create"),
     path('lookbooks/<int:pk>/', views.LookbookDetail.as_view(), name="lookbook_detail"),
     path('lookbooks/<int:pk>/new/', views.ProductCreate.as_view(), name="product_create"),
+    path('lookbooks/<int:lookbook_pk>/products/<int:pk>/update/',views.ProductUpdate.as_view(), name="product_update"),
 ]
+
 
 
 
