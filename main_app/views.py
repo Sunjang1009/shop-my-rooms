@@ -52,6 +52,13 @@ class LookbookDetail(DetailView):
     #     # context["products"] = Product.objects.all()
     #     return context
 
-
+class ProductCreate(View):
+    def post(self, request, pk):
+        name = request.POST.get("name")
+        image = request.POST.get("image")
+        price = request.POST.get("price")
+        lookbook = Lookbook.objects.get(pk=pk)
+        Product.objects.create(name=name, image=image, price=price, lookbook=lookbook)
+        return redirect('lookbook_detail', pk=pk)
 
 

@@ -56,7 +56,7 @@
         <div class="lookbook">
             <span>{{forloop.counter}}</span>
             <span>{{lookbook.name}}</span>
-            <a href="{% url 'lookbook_detail' theme.pk lookbook.pk %}">
+            <a href="{% url 'lookbook_detail' lookbook.pk %}">
                 <img src="{{lookbook.image}}" alt="{{lookbook.name}}">
             </a>
    
