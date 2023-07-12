@@ -53,37 +53,42 @@
             </div>
         </form>
         <h3 class="title is-3">LookBooks</h3>
-        {% for lookbook in theme.lookbooks.all %}
-        <div class="lookbook">
-            <span>{{forloop.counter}}</span>
-            <span>{{lookbook.name}}</span>
+        <div class="gallery">
+            {% for lookbook in theme.lookbooks.all %}
             <a href="{% url 'lookbook_detail' lookbook.pk %}">
-                <img src="{{lookbook.image}}" alt="{{lookbook.name}}">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-square">
+                            <img src="{{lookbook.image}}" alt="{{lookbook.name}}">
+                        </figure>
+                    </div>
+                    <div class="card-header">
+                        <span>{{forloop.counter}}</span>
+                        <p class="card-header-title">{{lookbook.name}}</p>
+                        <p class="card-header-title">{{lookbook.items}}</p>
+                    </div>
+                    <div class="buttons">
+                        <a href="{% url 'lookbook_update' lookbook.pk %}" class="button is-info">
+                            <span class="icon">
+                                <i class="fas fa-edit"></i>
+                            </span>
+                        </a>
+                        <span class="icon">
+                            <a href="{% url 'lookbook_delete' lookbook.pk %}" class="button is-danger">
+                                <i class="fas fa-trash-alt"></i>
+                        </span>
+                        </a>
+                    </div>
+                </div>
             </a>
-   
-            <div>
-                {{lookbook.items}}
-            </div>
+            {% empty %}
+            <article class="message">
+                <div class="message-header">
+                    <p>No Lookbooks Available</p>
+                </div>
+            </article>
+            {% endfor %}
         </div>
-        <div class="buttons">
-            <a href="{% url 'lookbook_update' lookbook.pk %}" class="button is-info">
-                <span class="icon">
-                    <i class="fas fa-edit"></i>
-                </span>
-            </a>
-            <span class="icon">
-                <a href="{% url 'lookbook_delete' lookbook.pk %}" class="button is-danger">
-                    <i class="fas fa-trash-alt"></i>
-            </span>
-            </a>
-        </div>
-        {% empty %}
-        <article class="message">
-            <div class="message-header">
-                <p>No Lookbooks Available</p>
-            </div>
-        </article>
-        {% endfor %}
     </div>
 </div>
 {% endblock %}
