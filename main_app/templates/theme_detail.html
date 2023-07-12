@@ -9,6 +9,7 @@
         <p>{{theme.description}}</p>
     </div>
     <div class="detail__lookbooks mb-5">
+        <!-- look book create form -->
         <form class="mb-5" action="{% url 'lookbook_create' theme.pk %}" method="post">
             {% csrf_token %}
             <div class="field is-horizontal">
@@ -63,6 +64,18 @@
             <div>
                 {{lookbook.items}}
             </div>
+        </div>
+        <div class="buttons">
+            <a href="{% url 'lookbook_update' lookbook.pk %}" class="button is-info">
+                <span class="icon">
+                    <i class="fas fa-edit"></i>
+                </span>
+            </a>
+            <span class="icon">
+                <a href="{% url 'lookbook_delete' lookbook.pk %}" class="button is-danger">
+                    <i class="fas fa-trash-alt"></i>
+            </span>
+            </a>
         </div>
         {% empty %}
         <article class="message">

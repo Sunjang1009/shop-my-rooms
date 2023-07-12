@@ -54,6 +54,17 @@ class LookbookDetail(DetailView):
     #     # context["products"] = Product.objects.all()
     #     return context
 
+class LookbookUpdate(UpdateView):
+    model = Lookbook
+    fields = ['name', 'image', 'items']
+    template_name = "lookbook_update.html"
+    success_url = '/themes/'
+
+class LookbookDelete(DeleteView):
+    model = Lookbook
+    template_name = "lookbook_delete_confirmation.html"
+    success_url = '/themes/'
+    
 class ProductCreate(View):
     def post(self, request, pk):
         name = request.POST.get("name")
