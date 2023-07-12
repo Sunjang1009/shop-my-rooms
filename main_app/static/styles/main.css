@@ -85,11 +85,9 @@ img {
 .product__detail__img{
     display: grid;
     height: 100vh;
-
 }
 
 .product__detail__detail{
     display: flex;
-
 }
 
