@@ -62,12 +62,14 @@ class LookbookUpdate(UpdateView):
     model = Lookbook
     fields = ['name', 'image', 'items']
     template_name = "lookbook_update.html"
-    success_url = '/themes/'
+    def get_success_url(self):
+        return reverse('theme_detail', kwargs={'pk':self.object.theme.pk})
 
 class LookbookDelete(DeleteView):
     model = Lookbook
     template_name = "lookbook_delete_confirmation.html"
-    success_url = '/themes/'
+    def get_success_url(self):
+        return reverse('theme_detail', kwargs={'pk':self.object.theme.pk})
 
 class ProductCreate(View):
     def post(self, request, pk):
