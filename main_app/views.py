@@ -64,7 +64,7 @@ class LookbookDelete(DeleteView):
     model = Lookbook
     template_name = "lookbook_delete_confirmation.html"
     success_url = '/themes/'
-    
+
 class ProductCreate(View):
     def post(self, request, pk):
         name = request.POST.get("name")
@@ -74,7 +74,7 @@ class ProductCreate(View):
         Product.objects.create(name=name, image=image, price=price, lookbook=lookbook)
         return redirect('lookbook_detail', pk=pk)
 
-
+# have some issue with my reverse function
 class ProductUpdate(UpdateView):
     model = Product
     fields = ["name", "image", "price"]
@@ -82,4 +82,13 @@ class ProductUpdate(UpdateView):
     # have to update kwargs as pk lookbook pk not product pk
     def get_success_url(self):
         return reverse('lookbook_detail', kwargs={'pk':self.object.pk})
+
+class ShoppinglistProductAssoc(View):
+    def get(self, request, pk, product_pk):
+        assoc = request.GET.get("assoc")
+        if assoc == "remove":
+            Shoppinglist.objects.get(pk=pk).products.remove(product_pk)
+        if assoc == "add":
+            Shoppinglist.objects.get(pk=pk).products.add(product_pk)
+        return redirect('home')
 

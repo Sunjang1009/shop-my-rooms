@@ -27,3 +27,8 @@ class Product(models.Model):
     def get_price(self):
         return f"${self.price:,.2f}"
 
+class Shoppinglist(models.Model):
+    name = models.CharField(max_length=150)
+    products = models.ManyToManyField(Product)
+    def __str__(self):
+        return self.name

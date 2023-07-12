@@ -12,7 +12,12 @@ urlpatterns = [
     path('lookbooks/<int:pk>/update/', views.LookbookUpdate.as_view(), name="lookbook_update"),
     path('lookbooks/<int:pk>/delete/', views.LookbookDelete.as_view(), name="lookbook_delete"),
     path('lookbooks/<int:lookbook_pk>/products/<int:pk>/update/',views.ProductUpdate.as_view(), name="product_update"),
+    path('shoppinglists/<int:pk>/products/<int:product_pk>', views.ShoppinglistProductAssoc.as_view(), name="shoppinglist_product_assoc"),
 ]
+
+
+
+
 
 
 
