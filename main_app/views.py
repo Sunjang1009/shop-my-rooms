@@ -30,6 +30,10 @@ class ThemeList(TemplateView):
 class ThemeDetail(DetailView):
     model = Theme
     template_name = "theme_detail.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["lookbooks"] = Lookbook.objects.all()
+        return context
 
 class LookbookCreate(View):
     def post(self, request, pk):
@@ -43,6 +47,11 @@ class LookbookCreate(View):
 class LookbookDetail(DetailView):
     model = Lookbook
     template_name = "lookbook_detail.html"
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     # context["products"] = Product.objects.all()
+    #     return context
+
 
 
 

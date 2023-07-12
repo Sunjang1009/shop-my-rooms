@@ -80,9 +80,16 @@ img {
 
 .product_detail_contrainer {
     display: flex;
-    
+
 }
 .product__detail__img{
     display: grid;
-    width:30%;
+    height: 100vh;
+
 }
+
+.product__detail__detail{
+    display: flex;
+
+}
+
