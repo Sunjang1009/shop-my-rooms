@@ -1,25 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Home</h1>
-<div class="home__shoppinglists">
+<div class="tile is-ancestor">
     {% for shoppinglist in shoppinglists%}
-        <div class="shoppinglist mb-5">
-            <h3 class="title is-e has-text-success">{{shoppinglist.name}}</h3>
-            <hr />
-            {% for product in shoppinglist.products.all %}
-            <div class="product">
-                <span>{{forloop.counter}}</span>
-                <span><b>{{product.name}}</b></span>
-                <img src="{{product.image}}" alt="{{product.name}}" />
-                <span>{{product.get_price}}</span>
-                <span>
-                    <a href="{% url 'shoppinglist_product_assoc' shoppinglist.pk product.pk %}?assoc=remove" class="button is-danger is-outlined">
-                        <span class="icon is-small">
-                            <i class="fas fa-times"></i>
-                        </span>
-                    </a>
-                </span>
-            </div>
+        <div class="tile is-parent">
+            <article class="tile is-child box">
+                <p class="title">{{shoppinglist.name}}</p>
+                <hr />
+                {% for product in shoppinglist.products.all %}
+                <div class="product">
+                    <span>{{forloop.counter}}</span>
+                    <span><b>{{product.name}}</b></span>
+                    <img src="{{product.image}}" alt="{{product.name}}" />
+                    <span>{{product.get_price}}</span>
+                    <span>
+                        <a href="{% url 'shoppinglist_product_assoc' shoppinglist.pk product.pk %}?assoc=remove" class="button is-danger is-outlined">
+                            <span class="icon is-small">
+                                <i class="fas fa-times"></i>
+                            </span>
+                        </a>
+                    </span>
+                </div>
+            </article>
             {% endfor %}
         </div>
     {% empty %}

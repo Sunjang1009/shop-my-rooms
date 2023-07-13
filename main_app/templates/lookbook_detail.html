@@ -44,23 +44,41 @@
         <input class="button is-primary" type="submit" value="add a product" />
     </div>
 </form>
-<div class="product_detail_contrainer">
-    <div class="product__detail__img">
-        <h1>{{lookbook.name}}</h1>
-        <img src="{{lookbook.image}}" alt="{{lookbook.name}}">
+<!-- end of the form -->
+
+
+<div class="product__detail__img">
+    <h1>{{lookbook.name}}</h1>
+    <img src="{{lookbook.image}}" alt="{{lookbook.name}}">
+</div>
+
+<div>
+    <h3 class="title is-3">Products</h3>
+    
+    {% for product in lookbook.products.all %}
+    <div class="box">
+        <article class="media">
+            <div class="media-left">
+                <figure class="image is-64x64">
+                    <img src="{{product.image}}" alt="{{product.name}}">
+                </figure>
+            </div>
+            <div class="media-content">
+                <div class="content">
+                    <p>
+                        <span>{{forloop.counter}}</span>
+                        <span>{{product.name}}</span>
+                        <br />
+                        <span>{{product.get_price}}</span>
+                    </p>
+                </div>
+            </div>
+        </article>
     </div>
-    <div class="product__detail__detail">
-        <h3 class="title is-3">Products</h3>
-        {% for product in lookbook.products.all %}
-        <div class="lookbook__detail">
-            <span>{{forloop.counter}}</span>
-            <span>{{product.name}}</span>
-            <img src="{{product.image}}" alt="{{product.name}}">
-            <span>{{product.get_price}}</span>
-        </div>
-        {% endfor %}
-    </div>
+    {% endfor %}
 
 </div>
+
+
 
 {% endblock %}
