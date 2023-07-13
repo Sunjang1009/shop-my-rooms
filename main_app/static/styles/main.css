@@ -91,3 +91,21 @@ img {
     display: flex;
 }
 
+.lookbook_container{
+    display: flex;
+}
+.left {
+    flex:2;
+    width:50vh;
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+}
+.lookbook_image {
+    max-width: 100%;
+    width:33vw;
+    height:auto;
+}
+
