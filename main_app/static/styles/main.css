@@ -26,14 +26,6 @@ h3 {
     gap: 10px;
 }
 
-.gallery .card {
-    transition: .1s linear;
-}
-
-.gallery .card:hover {
-    /* transform: scale(1.1); */
-    z-index: 10;
-}
 
 p {
     font-size: 12px;
@@ -80,7 +72,6 @@ img {
 
 .product_detail_contrainer {
     display: flex;
-
 }
 .product__detail__img{
     display: grid;
@@ -108,4 +99,5 @@ img {
     width:33vw;
     height:auto;
 }
+
 

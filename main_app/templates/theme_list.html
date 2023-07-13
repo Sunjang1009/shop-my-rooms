@@ -18,24 +18,24 @@ Themes
 </form>
 <div class="gallery">
     {% for theme in themes %}
-    <a href="{% url 'theme_detail' theme.pk %}">
-        <div class="card">
-            <div class="card-image">
-                <figure class="image is-square">
-                    <img src="{{theme.image}}" alt="{{theme.name}}" />
-                </figure>
+        <a href="{% url 'theme_detail' theme.pk %}">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-square">
+                        <img src="{{theme.image}}" alt="{{theme.name}}" />
+                    </figure>
+                </div>
+                <div class="card-header">
+                    <p class="card-header-title">{{theme.name}}</p>
+                </div>
             </div>
-            <div class="card-header">
-                <p class="card-header-title">{{theme.name}}</p>
+        </a>
+        {% empty %}
+        <article class="message">
+            <div class="message-header">
+                <p>No Themes Available</p>
             </div>
-        </div>
-    </a>
-    {% empty %}
-    <article class="message">
-        <div class="message-header">
-            <p>No Themes Available</p>
-        </div>
-    </article>
+        </article>
     {% endfor %}
 </div>
 {% endblock %}

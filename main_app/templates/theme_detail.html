@@ -58,40 +58,48 @@
 
 <h3 class="title is-3">LookBooks</h3>
 
-<div class="tile is-ancestor">
-    <div class="tile is-vertical is-4">
-        {% for lookbook in theme.lookbooks.all %}
-        <div class="tile is-parent">
-            <article class="tile is-child box">
-                <a href="{% url 'lookbook_detail' lookbook.pk %}">
-                    <p class="title">{{lookbook.name}}</p>
-                    <figure class="image is-4by3">
-                        <img src="{{lookbook.image}}" alt="{{lookbook.name}}">
-                    </figure>
-                    <span>{{forloop.counter}}</span>
-                    <p class="subtitle">{{lookbook.items}}</p>
-                    <div class="buttons">
-                        <a href="{% url 'lookbook_update' lookbook.pk %}" class="button is-info">
-                            <span class="icon">
-                                <i class="fas fa-edit"></i>
-                            </span>
-                        </a>
-                        <span class="icon">
-                            <a href="{% url 'lookbook_delete' lookbook.pk %}" class="button is-danger">
-                                <i class="fas fa-trash-alt"></i>
-                        </span>
-                    </div>
-                </a>
-            </article>
-        </div>
-        {% empty %}
-        <article class="message">
-            <div class="message-header">
-                <p>No Lookbooks Available</p>
+<div class="gallery">
+    {% for lookbook in theme.lookbooks.all %}
+    <div class="card">
+        <a href="{% url 'lookbook_detail' lookbook.pk %}">
+            <div class="card-image">
+                <figure class="image is-4by3">
+                    <img src="{{lookbook.image}}" alt="{{lookbook.name}}">
+                </figure>
             </div>
-        </article>
-        {% endfor %}
+        </a>
+        <header class="card-header">
+            <p class="card-header-title">
+                <span>{{forloop.counter}}</span>
+                {{lookbook.name}}
+            </p>
+        </header>
+        <div class="card-content">
+            <div class="content">
+                {{lookbook.items}}
+            </div>
+        </div>
+        <div class="card-footer">
+            <a href="{% url 'lookbook_update' lookbook.pk %}" class="card-footer-item">
+                <span class="icon">
+                    <i class="fas fa-edit"></i>
+                </span>
+            </a>
+            <a href="{% url 'lookbook_delete' lookbook.pk %}" class="card-footer-item">
+                <span class="icon">
+                    <i class="fas fa-trash-alt"></i>
+                </span>
+            </a>
+        </div>
     </div>
+
+    {% empty %}
+    <article class="message">
+        <div class="message-header">
+            <p>No Lookbooks Available</p>
+        </div>
+    </article>
+    {% endfor %}
 </div>
 
 {% endblock %}
