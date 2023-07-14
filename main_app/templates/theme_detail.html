@@ -2,8 +2,8 @@
 {% block content %}
 <div class="theme-detail-header">
     <div class="theme-detail-container">
-            <h1>{{theme.name}}</h1>
-            <p>{{theme.description}}</p>
+        <h1>{{theme.name}}</h1>
+        <p>{{theme.description}}</p>
     </div>
     <div class="theme-detail-form">
         <form class="mb-5" action="{% url 'lookbook_create' theme.pk %}" method="post">
@@ -27,7 +27,8 @@
                 <div class="field-body">
                     <div class="field">
                         <p class="control">
-                            <input class="input is-small" type="text" name="image" placeholder="Lookbook image address" required>
+                            <input class="input is-small" type="text" name="image" placeholder="Lookbook image address"
+                                required>
                         </p>
                     </div>
                 </div>
@@ -39,7 +40,8 @@
                 <div class="field-body">
                     <div class="field">
                         <p class="control">
-                            <input class="input is-small" type="text" name="items" placeholder="Lookbook items" required>
+                            <input class="input is-small" type="text" name="items" placeholder="Lookbook items"
+                                required>
                         </p>
                     </div>
                 </div>
@@ -81,13 +83,13 @@
         </div>
         <div class="card-footer">
             <a href="{% url 'lookbook_update' lookbook.pk %}" class="card-footer-item">
-                <span class="icon">
-                    <i class="fas fa-edit"></i>
+                <span>
+                    Update
                 </span>
             </a>
             <a href="{% url 'lookbook_delete' lookbook.pk %}" class="card-footer-item">
-                <span class="icon">
-                    <i class="fas fa-trash-alt"></i>
+                <span>
+                    Delete
                 </span>
             </a>
         </div>

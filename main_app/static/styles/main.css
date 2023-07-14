@@ -275,3 +275,9 @@ img {
     border-radius: 8px;
     overflow: hidden;
 }
+.card-footer-item {
+    color:#286e34
+}
+.card-footer-item:hover {
+    color:#ff8000
+}
