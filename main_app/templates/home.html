@@ -22,15 +22,12 @@
                         </p>
                     </div>
                 </div>
-                <span>
-                    <a href="{% url 'shoppinglist_product_assoc' shoppinglist.pk product.pk %}?assoc=remove"
-                        class="button is-danger is-outlined">
-                        <span class="icon is-small">
-                            <i class="fas fa-times"></i>
-                        </span>
+                <div class="media-right">
+                    <a href="{% url 'shoppinglist_product_assoc' shoppinglist.pk product.pk %}?assoc=remove">
+                        <button class="delete"></button>
                     </a>
-                </span>
-                </article>
+                </div>
+            </article>
         </div>
             {% endfor %}
     </div>

@@ -1,51 +1,60 @@
 {% extends 'base.html' %}
 {% block content %}
 <!-- add form to add a product to the lookbook -->
-<form class="mb-5" action="{% url 'product_create' lookbook.pk %}" method="post">
-    {% csrf_token %}
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-            <label class="label">Name</label>
-        </div>
-        <div class="field-body">
-            <div class="field">
-                <p class="control">
-                    <input class="input" type="text" name="name" placeholder="Product name" required>
-                </p>
+
+<div class="theme-detail-header">
+    <div class="theme-detail-container">
+            <h1>{{lookbook.name}}</h1>
+    </div>
+    <div class="theme-detail-form">
+        <form class="mb-5" action="{% url 'product_create' lookbook.pk %}" method="post">
+            {% csrf_token %}
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Name</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input class="input is-small" type="text" name="name" placeholder="Product name" required>
+                        </p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-            <label class="label">Image</label>
-        </div>
-        <div class="field-body">
-            <div class="field">
-                <p class="control">
-                    <input class="input" type="text" name="image" placeholder="Product image" required>
-                </p>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Image</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input class="input is-small" type="text" name="image" placeholder="Product image" required>
+                        </p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-            <label class="label">Price</label>
-        </div>
-        <div class="field-body">
-            <div class="field">
-                <p class="control">
-                    <input class="input" type="text" name="price" placeholder="Product price" required>
-                </p>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Price</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input class="input is-small" type="text" name="price" placeholder="Product price" required>
+                        </p>
+                    </div>
+                </div>
             </div>
-        </div>
+            <div class="control">
+                <input class="button is-light is-small" type="submit" value="add a product" />
+            </div>
+        </form>
     </div>
-    <div class="control">
-        <input class="button is-light" type="submit" value="add a product" />
-    </div>
-</form>
+    
+</div>
+
 <!-- end of the form -->
 
-<h1 class="theme-title">{{lookbook.name}}</h1>
 <div class="columns is-gapless">
     <div class="column">
         <img src="{{lookbook.image}}" alt="{{lookbook.name}}" class="lookbook_image" />

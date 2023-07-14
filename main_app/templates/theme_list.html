@@ -3,20 +3,24 @@
 Themes
 {% endblock %}
 {% block content %}
-<h1 class="theme-title">{{header}}</h1>
-<div class="theme-br"></div>
-<!-- here is the search form -->
-<form class="mb-5" method="get">
-    <div class="field has-addons">
-        <div class="control">
-            <input class="input" type="text" name="name" placeholder="please enter theme"/>
+<div class="home-header-container">
+    <h1 class="theme-title">{{header}}</h1>
+    <div class="theme-br"></div>
+</div>
+<div class="home-search-container">
+    <form class="mb-5" method="get">
+        <div class="field has-addons">
+            <div class="control">
+                <input class="input" type="text" name="name" placeholder="please enter theme"/>
+            </div>
+            <div class="control">
+                <input class="button is-light" type="submit" value="Search" />
+            </div>
+            <a class="button is-dark" href="{% url 'theme_list' %}">Clear Search</a>
         </div>
-        <div class="control">
-            <input class="button is-light" type="submit" value="Search" />
-        </div>
-        <a class="button is-dark" href="{% url 'theme_list' %}">Clear Search</a>
-    </div>
-</form>
+    </form>
+</div>
+
 <div class="gallery">
     {% for theme in themes %}
         <a href="{% url 'theme_detail' theme.pk %}">
