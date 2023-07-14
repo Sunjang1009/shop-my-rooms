@@ -1,16 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="detail__img">
-    <h1>{{theme.name}}</h1>
-    <!-- <img src="{{theme.image}}" alt="{{theme.name}}"> -->
-</div>
-
-<div class="detail__container">
-    <div class="detail__about">
-        <p>{{theme.description}}</p>
+<div class="theme-detail-header">
+    <div class="theme-detail-container">
+            <h1>{{theme.name}}</h1>
+            <p>{{theme.description}}</p>
     </div>
-    <div class="detail__lookbooks mb-5">
-        <!-- look book create form -->
+    <div class="theme-detail-form">
         <form class="mb-5" action="{% url 'lookbook_create' theme.pk %}" method="post">
             {% csrf_token %}
             <div class="field is-horizontal">
@@ -54,7 +49,12 @@
             </div>
         </form>
     </div>
+    <div class="theme-background-image-container">
+        <img src="{{theme.image}}" alt="{{theme.name}}" />
+    </div>
 </div>
+<!-- look book create form -->
+
 
 <h3 class="title is-3">LookBooks</h3>
 
@@ -101,5 +101,4 @@
     </article>
     {% endfor %}
 </div>
-
 {% endblock %}

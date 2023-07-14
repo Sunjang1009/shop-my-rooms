@@ -10,6 +10,7 @@ h3 {
     color: #286e34;
     text-align: center;
 }
+
 .theme-title {
     padding-top: 1rem;
     font-weight: 700;
@@ -18,8 +19,8 @@ h3 {
 
 .theme-br {
     border-top: 1.5px solid #286e34;
-    margin:10px auto;
-    width:50%;
+    margin: 10px auto;
+    width: 50%;
 }
 
 
@@ -55,10 +56,91 @@ p {
 
 img {
     width: 100%;
-    height: 500px;
+    height: 30vw;
     object-fit: cover;
-    object-position: top;
+    object-position: center;
 }
+
+.theme-detail-header {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+    width:80vw;
+    background-color: #286e34;
+}
+
+.theme-detail-container {
+    flex: 1;
+    padding: 20px;
+    z-index: 2;
+}
+
+.theme-detail-form {
+    flex: 1;
+    padding: 20px;
+    background-color: #286e34;
+    z-index: 2;
+}
+
+.theme-background-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    /* Adjust the width as needed */
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.theme-background-image-container  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.theme-detail-header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    z-index:2;
+    color:#f2f2f2;
+}
+
+.theme-detail-header p {
+    font-size: 12px;
+    z-index: 2;
+    color: #f2f2f2;
+}
+
+.theme-detail-header img {
+    max-width: 100%;
+    height: auto;
+}
+
+.theme-detail-form form {
+    margin-top: 20px;
+}
+
+.theme-detail-form .field {
+    margin-bottom: 10px;
+}
+
+.theme-detail-form .label {
+    font-weight: bold;
+}
+
+.theme-detail-form .input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.theme-detail-form .button {
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
 
 .detail__name {
     position: absolute;
@@ -127,8 +209,10 @@ img {
 }
 
 .card {
-    width: 25vw; /* Adjust the width to your desired size */
-    height: auto; /* Adjust the height as needed */
+    width: 25vw;
+    /* Adjust the width to your desired size */
+    height: auto;
+    /* Adjust the height as needed */
 }
 
 .card-container {
@@ -141,6 +225,7 @@ img {
     max-height: 100%;
     display: block;
 }
+
 .card-overlay {
     position: absolute;
     top: 0;
@@ -159,7 +244,7 @@ img {
 }
 
 .card-overlay:hover {
-    color:#ff8000;
+    color: #ff8000;
     transition: 0.3s ease-in;
 }
 
@@ -168,5 +253,3 @@ img {
     border-radius: 8px;
     overflow: hidden;
 }
-
-
