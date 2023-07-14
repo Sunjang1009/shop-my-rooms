@@ -1,33 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="tile is-ancestor">
+<div class="gallery">
     {% for shoppinglist in shoppinglists%}
-        <div class="tile is-parent">
-            <article class="tile is-child box">
-                <p class="title">{{shoppinglist.name}}</p>
-                <hr />
-                {% for product in shoppinglist.products.all %}
-                <div class="product">
-                    <span>{{forloop.counter}}</span>
-                    <span><b>{{product.name}}</b></span>
-                    <img src="{{product.image}}" alt="{{product.name}}" />
-                    <span>{{product.get_price}}</span>
-                    <span>
-                        <a href="{% url 'shoppinglist_product_assoc' shoppinglist.pk product.pk %}?assoc=remove" class="button is-danger is-outlined">
-                            <span class="icon is-small">
-                                <i class="fas fa-times"></i>
-                            </span>
-                        </a>
-                    </span>
+    <div class="card">
+        <p class="title">{{shoppinglist.name}}</p>
+        <hr />
+        {% for product in shoppinglist.products.all %}
+        <div class="card-content">
+            <articla class="media">
+                <figure class="media-left">
+                    <p class="image is-128x128">
+                        <img src="{{product.image}}" alt="{{product.name}}" />
+                    </p>
+                </figure>
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <span>{{forloop.counter}}</span>
+                            <span>{{product.name}}</span>
+                            <br />
+                        </p>
+                    </div>
                 </div>
-            </article>
-            {% endfor %}
+                <span>
+                    <a href="{% url 'shoppinglist_product_assoc' shoppinglist.pk product.pk %}?assoc=remove"
+                        class="button is-danger is-outlined">
+                        <span class="icon is-small">
+                            <i class="fas fa-times"></i>
+                        </span>
+                    </a>
+                </span>
+                </article>
         </div>
+            {% endfor %}
+    </div>
     {% empty %}
-        <div class="shoppinglist mb-5">"There are no products in this shoppinglist"</div>
-    
+    <div class="shoppinglist mb-5">"There are no products in this shoppinglist"</div>
+
     {% endfor %}
 </div>
 {% endblock %}
-
-
