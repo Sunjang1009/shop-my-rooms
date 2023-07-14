@@ -30,7 +30,7 @@ class ThemeList(TemplateView):
             context["header"] = f"Searching for {name}"
         else:
             context["themes"] = Theme.objects.all()
-            context["header"] = "Themes"
+            context["header"] = "Shop My Rooms"
         return context
 
 class ThemeDetail(DetailView):

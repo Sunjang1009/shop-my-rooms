@@ -8,10 +8,23 @@ h1,
 h2,
 h3 {
     color: #286e34;
+    text-align: center;
+}
+.theme-title {
+    padding-top: 1rem;
+    font-weight: 700;
+    font-size: 1.3em;
 }
 
+.theme-br {
+    border-top: 1.5px solid #286e34;
+    margin:10px auto;
+    width:50%;
+}
+
+
 .container {
-    padding: 40px;
+    padding: 0px;
     padding-right: 0;
 }
 

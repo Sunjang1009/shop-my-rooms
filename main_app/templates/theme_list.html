@@ -3,7 +3,8 @@
 Themes
 {% endblock %}
 {% block content %}
-<h1 class="title pt-5">{{header}}</h1>
+<h1 class="theme-title">{{header}}</h1>
+<div class="theme-br"></div>
 <!-- here is the search form -->
 <form class="mb-5" method="get">
     <div class="field has-addons">
@@ -11,10 +12,10 @@ Themes
             <input class="input" type="text" name="name" placeholder="please enter theme"/>
         </div>
         <div class="control">
-            <input class="button is-success" type="submit" value="Search" />
+            <input class="button is-light" type="submit" value="Search" />
         </div>
+        <a class="button is-dark" href="{% url 'theme_list' %}">Clear Search</a>
     </div>
-    <a class="button is-dark" href="{% url 'theme_list' %}">Clear Search</a>
 </form>
 <div class="gallery">
     {% for theme in themes %}
