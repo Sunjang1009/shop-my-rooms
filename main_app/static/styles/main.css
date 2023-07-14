@@ -97,10 +97,12 @@ img {
     flex-direction: column;
 }
 
+
 .lookbook_image {
     max-width: 100%;
-    width: 33vw;
     height: auto;
+    border-radius: 10px;
+    display: block;
 }
 
 .navbar {
@@ -144,6 +146,14 @@ img {
 }
 
 .card-overlay:hover {
-    color:#ff9500;
+    color:#ff8000;
     transition: 0.3s ease-in;
 }
+
+.media {
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+
