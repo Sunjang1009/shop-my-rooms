@@ -50,34 +50,26 @@
             </div>
         </form>
     </div>
-
 </div>
 
-<!-- end of the form -->
+<div class="columns">
 
-<div class="columns is-gapless">
-    <div class="column">
+    <div class="column is-half">
         <img src="{{lookbook.image}}" alt="{{lookbook.name}}" class="lookbook_image" />
     </div>
 
-    <div class="column">
-        {% for product in lookbook.products.all %}
-        <div class="column-detail">
-            <figure class="media-left">
-                <p class="image is-128x128">
-                    <img src="{{product.image}}" alt="{{product.name}}">
-                </p>
-            </figure>
-            <div class="column-detail-content">
-                <div class="content">
-                    <p>
-                        <span>{{forloop.counter}}</span>
-                        <span>{{product.name}}</span>
-                        <br />
-                        <span>{{product.get_price}}</span>
-                    </p>
+    <div class="column is-half">
+        <div class="item-detail-container">
+            {% for product in lookbook.products.all %}
+            <div class="custom-article">
+                <div class="image-container">
+                    <img src="{{product.image}}" alt="{{product.name}}" class="article-image" />
                 </div>
-                <div class="content">
+                <div class="header-container">
+                    <h6 class="title">{{forloop.counter}} {{product.name}}</h6>
+                    <p class="subtitle">{{product.get_price}}</p>
+                </div>
+                <div class="dropdown-container">
                     <div class="dropdown">
                         <div class="dropdown-trigger">
                             <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
@@ -90,21 +82,22 @@
                         <div class="dropdown-menu" id="dropdown-menu" role="menu">
                             <div class="dropdown-content">
                                 {% for shoppinglist in shoppinglists %}
-                                    <a href="{% url 'shoppinglist_product_assoc' shoppinglist.pk product.pk %}?assoc=add" class="dropdown-item">{{shoppinglist.name}}</a>
+                                <a href="{% url 'shoppinglist_product_assoc' shoppinglist.pk product.pk %}?assoc=add"
+                                    class="dropdown-item">{{shoppinglist.name}}</a>
                                 {% endfor %}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {% empty %}
+            <article class="message">
+                <div class="message-header">
+                    <p>No Products Available</p>
+                </div>
+            </article>
+            {% endfor %}
         </div>
-        {% empty %}
-        <article class="message">
-            <div class="message-header">
-                <p>No Products Available</p>
-            </div>
-        </article>
-        {% endfor %}
     </div>
 </div>
 {% endblock %}

@@ -91,6 +91,7 @@ img {
     align-items: center;
     margin: auto;
     margin-top: 20px;
+    margin-bottom: 20px;
     position: relative;
     height: 30vh;
     background-color: #286e34;
@@ -322,3 +323,39 @@ img {
     color:#ff8000;
 }
 
+
+.item-detail-container {
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    margin: none;
+}
+
+.custom-article {
+    width:100%;
+    height: 15vh;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #286e34;
+    border-radius: 50px;
+    margin-bottom: 15px;
+}
+
+.image-container img {
+    width: 120px; 
+    height: 120px; 
+    border-radius: 50%; 
+}
+
+.image-container{
+    margin-left: 10px;
+}
+
+.dropdown-container {
+    margin-right: 10px;
+}
+
+.header-container h6{
+    font-size: 1.5em;
+}
