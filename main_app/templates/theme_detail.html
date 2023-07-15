@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="control">
-                <input class="button is-dark is-small" type="submit" value="add a lookbook" />
+                <input class="button is-light is-small" type="submit" value="add a lookbook" />
             </div>
         </form>
     </div>
@@ -57,22 +57,21 @@
 </div>
 <!-- look book create form -->
 
-
 <h3 class="lookbook-title">LookBooks</h3>
 
 <div class="gallery">
     {% for lookbook in theme.lookbooks.all %}
     <div class="card">
         <a href="{% url 'lookbook_detail' lookbook.pk %}">
-            <div class="card-image">
-                <figure class="image is-4by3">
-                    <img src="{{lookbook.image}}" alt="{{lookbook.name}}">
-                </figure>
+            <div class="card-container">
+                <img src="{{lookbook.image}}" alt="{{lookbook.name}} class=card-image" />
+                <div class="card-overlay">
+                    <span>{{forloop.counter}}</span>
+                </div>
             </div>
         </a>
         <header class="card-header">
             <p class="card-header-title">
-                <span>{{forloop.counter}}</span>
                 {{lookbook.name}}
             </p>
         </header>

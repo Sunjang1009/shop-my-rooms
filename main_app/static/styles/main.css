@@ -94,7 +94,6 @@ img {
     position: relative;
     height: 30vh;
     background-color: #286e34;
-    
 }
 
 .theme-detail-container {
@@ -166,9 +165,17 @@ img {
     border-radius: 4px;
 }
 
+.control {
+    text-align: right;
+}
+
 .theme-detail-form .button {
-    padding: 10px 20px;
-    border-radius: 4px;
+    display: inline-block;
+    padding: 10px;
+    margin: 0px;
+    text-align: center;
+    line-height: 1;
+    width:80%;
 }
 
 
