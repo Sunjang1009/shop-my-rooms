@@ -4,7 +4,7 @@
 
 <div class="theme-detail-header">
     <div class="theme-detail-container">
-            <h1>{{lookbook.name}}</h1>
+        <h1>{{lookbook.name}}</h1>
     </div>
     <div class="theme-detail-form">
         <form class="mb-5" action="{% url 'product_create' lookbook.pk %}" method="post">
@@ -50,7 +50,7 @@
             </div>
         </form>
     </div>
-    
+
 </div>
 
 <!-- end of the form -->
@@ -77,6 +77,31 @@
                         <span>{{product.get_price}}</span>
                     </p>
                 </div>
+                <div class="content">
+                    <div class="dropdown">
+                        <div class="dropdown-trigger">
+                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                                <span>Add to Shoppinglist</span>
+                                <span class="icon is-small">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="dropdown-menu custom-dropdown" id="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                                {% for shoppinglist in shoppinglists %}
+                                    <a href="{% url 'shoppinglist_product_assoc' shoppinglist.pk product.pk %}?assoc=add" class="dropdown-item">{{shoppinglist.name}}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        {% empty %}
+        <article class="message">
+            <div class="message-header">
+                <p>No Products Available</p>
             </div>
         </article>
         {% endfor %}

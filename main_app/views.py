@@ -53,10 +53,10 @@ class LookbookCreate(View):
 class LookbookDetail(DetailView):
     model = Lookbook
     template_name = "lookbook_detail.html"
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     # context["products"] = Product.objects.all()
-    #     return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["shoppinglists"] = Shoppinglist.objects.all()
+        return context
 
 class LookbookUpdate(UpdateView):
     model = Lookbook
@@ -97,4 +97,3 @@ class ShoppinglistProductAssoc(View):
         if assoc == "add":
             Shoppinglist.objects.get(pk=pk).products.add(product_pk)
         return redirect('home')
-

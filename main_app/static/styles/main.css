@@ -282,3 +282,7 @@ img {
 .card-footer-item:hover {
     color:#ff8000
 }
+
+.custom-dropdown {
+    z-index: 10;
+}
