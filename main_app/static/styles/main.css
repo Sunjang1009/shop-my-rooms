@@ -46,10 +46,22 @@ h3 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     justify-content: center;
+    align-items: center;
     gap: 10px;
     margin-top: 40px;
+    margin-bottom: 40px;
+    height: 60vh;
 }
 
+.home-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    height: auto;
+}
 
 p {
     font-size: 12px;
@@ -71,11 +83,6 @@ p {
 
 .detail__img {
     position: absolute;
-    /* left: 0;
-    top: 0;
-    width: 100%;
-    background-color: #ffffff;
-    overflow: hidden; */
 }
 
 .theme-detail-header {
@@ -234,8 +241,9 @@ p {
 
 
 .lookbook_image {
-    max-width: 100%;
-    height: auto;
+    width:100%;
+    height:100%;
+    object-fit: cover;
     border-radius: 10px;
     display: block;
     box-shadow: 0 8px 4px rgba(0, 0, 0, 0.2);
@@ -263,7 +271,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    height:30vh;
+    height:50vh;
     overflow:hidden;
 }
 
@@ -394,6 +402,7 @@ p {
 }
 
 .lookbook-detail-container {
+    height:50vw;
     background-color: white;
     margin: none;
     display: flex;
