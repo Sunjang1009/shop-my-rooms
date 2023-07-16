@@ -4,7 +4,7 @@
 
 <div class="theme-detail-header">
     <div class="theme-detail-container">
-        <h1>{{lookbook.name}}</h1>
+        <h2>{{lookbook.name}}</h2>
     </div>
     <div class="theme-detail-form">
         <form class="mb-5" action="{% url 'product_create' lookbook.pk %}" method="post">
@@ -52,12 +52,10 @@
     </div>
 </div>
 
-<div class="columns">
-
+<div class="lookbook-detail-container">
     <div class="column is-half">
         <img src="{{lookbook.image}}" alt="{{lookbook.name}}" class="lookbook_image" />
     </div>
-
     <div class="column is-half">
         <div class="item-detail-container">
             {% for product in lookbook.products.all %}

@@ -11,7 +11,7 @@ Themes
     <form class="mb-5" method="get">
         <div class="field has-addons">
             <div class="control">
-                <input class="input" type="text" name="name" placeholder="please enter theme"/>
+                <input class="input" type="text" name="name" placeholder="please enter theme" />
             </div>
             <div class="control">
                 <input class="button is-light" type="submit" value="Search" />
@@ -20,27 +20,22 @@ Themes
         </div>
     </form>
 </div>
-
 <div class="gallery">
     {% for theme in themes %}
-        <a href="{% url 'theme_detail' theme.pk %}">
-            <div class="card">
-         
-                    <div class="card-container">
-                        <img src="{{theme.image}}" alt="{{theme.name}}" class="card-image"/>
-                        <div class="card-overlay">{{theme.name}}</div>
-                    </div>
-            
-               
+    <a href="{% url 'theme_detail' theme.pk %}">
+        <div class="card">
+            <div class="card-container">
+                <img src="{{theme.image}}" alt="{{theme.name}}" class="card-image" />
+                <div class="card-overlay">{{theme.name}}</div>
             </div>
-        </a>
-        {% empty %}
-        <article class="message">
-            <div class="message-header">
-                <p>No Themes Available</p>
-            </div>
-        </article>
+        </div>
+    </a>
+    {% empty %}
+    <article class="message">
+        <div class="message-header">
+            <p>No Themes Available</p>
+        </div>
+    </article>
     {% endfor %}
 </div>
 {% endblock %}
-
