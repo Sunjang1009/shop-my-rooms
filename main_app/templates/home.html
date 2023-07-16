@@ -5,7 +5,6 @@
     {% if shoppinglist.products.all %}
     <div class="card">
         <p class="title">{{shoppinglist.name}}</p>
-        <hr />
         {% for product in shoppinglist.products.all %}
         <div class="card-content">
             <articla class="media">
@@ -19,7 +18,6 @@
                         <p>
                             <span>{{forloop.counter}}</span>
                             <span>{{product.name}}</span>
-                            <br />
                         </p>
                     </div>
                 </div>
