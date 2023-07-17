@@ -1,50 +1,52 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="home-gallery">
-    {% for shoppinglist in shoppinglists %}
-    {% if shoppinglist.products.all %}
-    <div class="card custom-home">
-        <p class="title">{{shoppinglist.name}}</p>
-        {% for product in shoppinglist.products.all %}
-        <div class="card-content custom-home-content">
-            <articla class="media">
-                <figure class="media-left">
-                    <p class="image is-128x128">
-                        <img src="{{product.image}}" alt="{{product.name}}" />
-                    </p>
-                </figure>
+<div class="home-background">
+    <div class="home-gallery">
+        {% for shoppinglist in shoppinglists %}
+        {% if shoppinglist.products.all %}
+        <div class="card custom-home">
+            <p class="title">{{shoppinglist.name}}</p>
+            {% for product in shoppinglist.products.all %}
+            <div class="card-content custom-home-content">
+                <articla class="media">
+                    <figure class="media-left">
+                        <p class="image is-128x128">
+                            <img src="{{product.image}}" alt="{{product.name}}" />
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <span>{{forloop.counter}}</span>
+                                <span>{{product.name}}</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="media-right">
+                        <a href="{% url 'shoppinglist_product_assoc' shoppinglist.pk product.pk %}?assoc=remove">
+                            <button class="delete"></button>
+                        </a>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="card custom-home">
+            <p class="title">{{shoppinglist.name}}</p>
+            <hr />
+            <div class="card-content custom-home-content">
                 <div class="media-content">
                     <div class="content">
                         <p>
-                            <span>{{forloop.counter}}</span>
-                            <span>{{product.name}}</span>
+                            <span>"There are no products in this shoppinglist!"</span>
                         </p>
                     </div>
                 </div>
-                <div class="media-right">
-                    <a href="{% url 'shoppinglist_product_assoc' shoppinglist.pk product.pk %}?assoc=remove">
-                        <button class="delete"></button>
-                    </a>
-                </div>
-            </article>
-        </div>
-        {% endfor %}
-    </div>
-    {% else %}
-    <div class="card custom-home">
-        <p class="title">{{shoppinglist.name}}</p>
-        <hr />
-        <div class="card-content custom-home-content">
-            <div class="media-content">
-                <div class="content">
-                    <p>
-                        <span>"There are no products in this shoppinglist!"</span>
-                    </p>
-                </div>
             </div>
         </div>
+        {% endif %}
+        {% endfor %}
     </div>
-    {% endif %}
-    {% endfor %}
 </div>
 {% endblock %}
