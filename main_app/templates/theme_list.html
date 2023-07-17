@@ -24,9 +24,9 @@ Themes
     {% for theme in themes %}
     <a href="{% url 'theme_detail' theme.pk %}">
         <div class="card">
-            <div class="card-container">
-                <img src="{{theme.image}}" alt="{{theme.name}}" class="card-image" />
-                <div class="card-overlay">{{theme.name}}</div>
+            <div class="lookbook-card-container">
+                <img src="{{theme.image}}" alt="{{theme.name}}" class="lookbook-card-image" />
+                <div class="lookbook-card-overlay">{{theme.name}}</div>
             </div>
         </div>
     </a>
