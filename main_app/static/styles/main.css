@@ -518,3 +518,11 @@ p {
     font-size: 1em;
     font-weight: 400;
 }
+
+.custom-home {
+    height:auto;
+}
+
+.custom-home-content {
+    height:auto;
+}
