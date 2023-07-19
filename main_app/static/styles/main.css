@@ -60,7 +60,7 @@ h3 {
 .home-background {
     background-image: url('https://i.imgur.com/1rUVuv8.jpg');
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .home-gallery {
